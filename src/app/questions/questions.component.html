@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="de">
+<head>
+</head>
+<body>
+  <mat-toolbar>
+    <span>({{all_questions.length}})  Alle Fragen</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button>
+      <mat-icon>filter_list</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-card *ngFor="let question of all_questions">
+    <mat-card-content>
+      <p>{{question.question}}</p>
+      <mat-divider></mat-divider>
+    </mat-card-content>   
+    <mat-card-content> 
+      <h6 style="text-align: left; width:40%; display: inline-block;">{{question.gender}}</h6>
+      <h6 style="text-align: center; width:20%;  display: inline-block;">Thema: {{question.priority}}</h6>
+      <h6 style="text-align: right; width:40%;  display: inline-block;">{{question.timestamp_formated}}</h6>
+    </mat-card-content>
+  </mat-card>
+</body>
+</html>

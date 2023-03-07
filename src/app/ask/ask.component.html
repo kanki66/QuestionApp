@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+</head>
+
+<body>
+    <mat-form-field class="example-full-width">
+        <mat-label>Stelle deine Frage hier <sup style="color: red;">*</sup></mat-label>
+        <textarea matInput cdkTextareaAutosize placeholder=".....?" #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" [(ngModel)]="question"></textarea>
+    </mat-form-field>
+    <mat-card>
+            <mat-card-header style="text-align: left; display: inline-block;">
+                <label>Geschlecht: <sup style="color: red;">*</sup></label>
+                <mat-radio-group [(ngModel)]="gender" class="example-radio-group">
+                    <mat-radio-button value="Mann">Mann</mat-radio-button>
+                    <mat-radio-button value="Frau">Frau</mat-radio-button>
+                </mat-radio-group>
+                <p>Wie sehr hat die Frage mit dem Thema zu tun? <sup style="color: red;">*</sup></p>
+                <mat-button-toggle-group [(ngModel)]="priority">
+                    <mat-button-toggle value="Garnicht">Garnicht</mat-button-toggle>
+                    <mat-button-toggle value="Wenig">Wenig</mat-button-toggle>
+                    <mat-button-toggle value="Sehr">Sehr</mat-button-toggle>
+                  </mat-button-toggle-group>
+            </mat-card-header>
+            <mat-card-actions align="end">
+                <button mat-icon-button (click)="send_question()" [disabled]="!question || !gender || !priority">
+                  <mat-icon>send</mat-icon>
+                </button>
+            </mat-card-actions>
+      </mat-card>
+
+</body>
+
+</html>
